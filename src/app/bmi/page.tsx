@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Navbar from "@/components/Navbar";
 
 type Unit = "metric" | "imperial";
 type Category = "underweight" | "normal" | "overweight" | "obese";
@@ -163,6 +164,9 @@ export default function BMIPage() {
 
   return (
     <main className="min-h-screen bg-stone-50 py-12 px-4">
+      <div className="max-w-lg mx-auto mb-6">
+        <Navbar />
+      </div>
       <div className="max-w-lg mx-auto">
         {/* Header */}
         <div className="text-center mb-8">
@@ -195,7 +199,7 @@ export default function BMIPage() {
 
           {/* Inputs */}
           {unit === "metric" ? (
-            <div className="grid grid-cols-2 gap-4 mb-5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-5">
               <div>
                 <label className="block text-xs text-stone-400 mb-1">Height (cm)</label>
                 <input
@@ -203,7 +207,7 @@ export default function BMIPage() {
                   placeholder="e.g. 170"
                   value={heightCm}
                   onChange={(e) => setHeightCm(e.target.value)}
-                  className="w-full border border-stone-200 rounded-lg px-3 py-2 text-sm text-stone-800 focus:outline-none focus:border-teal-400"
+                  className="w-full border border-stone-200 rounded-lg px-3 py-2 text-sm text-stone-800 focus:outline-none focus:border-stone-400"
                 />
               </div>
               <div>
@@ -213,12 +217,12 @@ export default function BMIPage() {
                   placeholder="e.g. 70"
                   value={weightKg}
                   onChange={(e) => setWeightKg(e.target.value)}
-                  className="w-full border border-stone-200 rounded-lg px-3 py-2 text-sm text-stone-800 focus:outline-none focus:border-teal-400"
+                  className="w-full border border-stone-200 rounded-lg px-3 py-2 text-sm text-stone-800 focus:outline-none focus:border-stone-400"
                 />
               </div>
             </div>
           ) : (
-            <div className="grid grid-cols-3 gap-4 mb-5">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-5">
               <div>
                 <label className="block text-xs text-stone-400 mb-1">Feet</label>
                 <input
@@ -226,7 +230,7 @@ export default function BMIPage() {
                   placeholder="5"
                   value={heightFt}
                   onChange={(e) => setHeightFt(e.target.value)}
-                  className="w-full border border-stone-200 rounded-lg px-3 py-2 text-sm text-stone-800 focus:outline-none focus:border-teal-400"
+                  className="w-full border border-stone-200 rounded-lg px-3 py-2 text-sm text-stone-800 focus:outline-none focus:border-stone-400"
                 />
               </div>
               <div>
@@ -236,7 +240,7 @@ export default function BMIPage() {
                   placeholder="7"
                   value={heightIn}
                   onChange={(e) => setHeightIn(e.target.value)}
-                  className="w-full border border-stone-200 rounded-lg px-3 py-2 text-sm text-stone-800 focus:outline-none focus:border-teal-400"
+                  className="w-full border border-stone-200 rounded-lg px-3 py-2 text-sm text-stone-800 focus:outline-none focus:border-stone-400"
                 />
               </div>
               <div>
@@ -246,7 +250,7 @@ export default function BMIPage() {
                   placeholder="154"
                   value={weightLbs}
                   onChange={(e) => setWeightLbs(e.target.value)}
-                  className="w-full border border-stone-200 rounded-lg px-3 py-2 text-sm text-stone-800 focus:outline-none focus:border-teal-400"
+                  className="w-full border border-stone-200 rounded-lg px-3 py-2 text-sm text-stone-800 focus:outline-none focus:border-stone-400"
                 />
               </div>
             </div>
@@ -258,7 +262,7 @@ export default function BMIPage() {
 
           <button
             onClick={calculate}
-            className="w-full bg-teal-700 hover:bg-teal-800 text-white rounded-lg py-3 text-sm font-medium transition-colors"
+            className="w-full bg-stone-700 hover:bg-stone-800 text-white rounded-lg py-3 text-sm font-medium transition-colors"
           >
             Calculate my BMI
           </button>
@@ -324,7 +328,7 @@ export default function BMIPage() {
               <ul className="space-y-2">
                 {cat.tips.map((tip, i) => (
                   <li key={i} className="flex gap-2 text-sm text-stone-600 leading-relaxed">
-                    <span className="text-teal-600 flex-shrink-0 mt-0.5">→</span>
+                    <span className="text-stone-600 flex-shrink-0 mt-0.5">→</span>
                     {tip}
                   </li>
                 ))}
